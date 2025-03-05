@@ -1,24 +1,24 @@
 import java.util.*;
-class ArrayStack{	
+class ArrayStack{
 public char[] stack;
 public int capacity;
 protected int top = -1;
 public ArrayStack(int len) {
     capacity=len;
-stack = new char[len]; 
+stack = new char[len];
 }
 public int size()
 {
     return (top+1);
 }
-public void push(char data) 
+public void push(char data)
 {
 if (isFull())
 System.out.println("Stack is Overflow. Not possible to insert in Full stack");
 else
 stack[++top] = data;
 }
-public void pop() 
+public void pop()
 {
 char data='0';
 if (isEmpty())
@@ -56,10 +56,22 @@ public void display()
 
 public static void main(String[] args)
 {
-    
-    Scanner sc=new Scanner(System.in);
-    System.out.println("Enter the string to reverse:"); 
+   
+   Scanner sc=new Scanner(System.in);
+    System.out.println("Enter the string to reverse:");
     String str=sc.nextLine();
+    ArrayStack arrstack=new ArrayStack(str.length());
+    for(int i=0;i<str.length();i++)
+    {
+        arrstack.push(str.charAt(i));
+    }
+    System.out.println("Element is inserted in Stack using push.");
+    arrstack.display();
+    System.out.println("Reversed string using pop:");
+    for(int i=str.length()-1;i>=0;i--)
+    {
+        arrstack.pop();
+    }
       //TYPE YOUR CODE HERE
 }
 }
